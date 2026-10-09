@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="image/favicon.png">
+    <title>Church Birthday Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="intro">
+
+    <noscript>
+        <style>
+            .welcome {
+                display: none;
+            }
+
+            body.intro .page-shell {
+                display: block;
+            }
+        </style>
+    </noscript>
+
+    <div class="welcome" id="welcome" role="button" tabindex="0" aria-label="Tap anywhere to open the birthday form">
+        <div class="welcome-inner">
+            <img class="welcome-logo" src="image/logo.png" width="190" height="190"
+                alt="University Baptist Church, Ogbomoso logo">
+            <p class="welcome-church">University Baptist Church, Ogbomoso</p>
+            <p class="welcome-title">Birthday of the Week</p>
+            <p class="welcome-line">Share your birthday and the church will celebrate you in the weekly bulletin.</p>
+            <p class="welcome-verse">&ldquo;I praise you because I am fearfully and wonderfully made.&rdquo; Psalm
+                139:14</p>
+            <p class="welcome-tap">Tap anywhere to begin</p>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <div class="card glow-card">
+            <img class="brand-logo small" src="image/logo.png" width="88" height="100"
+                alt="University Baptist Church logo">
+            <h1>Register your birthday</h1>
+            <h2>University Baptist Church, Ogbomoso</h2>
+            <p class="intro">It takes less than a minute. Your name goes to the church secretary for the weekly
+                bulletin.</p>
+
+            <form id="birthdayForm" novalidate>
+
+                <div class="hp" aria-hidden="true">
+                    <label for="website">Leave this field empty</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <label for="fullName">Full name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+                <div class="row-2">
+                    <div>
+                        <label for="month">Birthday: Month</label>
+                        <select id="month" name="month" required>
+                            <option value="">Choose month</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="day">Birthday: Day</label>
+                        <input type="number" inputmode="numeric" id="day" name="day" min="1" max="31" placeholder="1-31"
+                            required>
+                    </div>
+                </div>
+
+                <label for="phone">Phone number (optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. +234 812 345 6789">
+
+                <label for="unit">Department or Unit (optional)</label>
+                <select id="unit" name="unit">
+                    <option value="">Choose unit</option>
+                    <option value="Choir Unit">Choir Unit</option>
+                    <option value="Choreography Unit">Choreography Unit</option>
+                    <option value="Ministry Comedian Unit">Ministry Comedian Unit</option>
+                    <option value="Lydia Unit">Lydia Unit</option>
+                    <option value="WMU Unit">WMU Unit</option>
+                    <option value="MMU Unit">MMU Unit</option>
+                    <option value="Sunday School Unit">Sunday School Unit</option>
+                    <option value="Publicity Unit">Publicity Unit</option>
+                    <option value="Media Unit">Media Unit</option>
+                    <option value="Cleaning Unit">Cleaning Unit</option>
+                    <option value="None">None</option>
+                </select>
+
+                <button type="submit">Send to Secretary</button>
+            </form>
+            <p id="message" aria-live="polite"></p>
+            <p class="privacy-note">Your details go only to the church secretary. Your phone number is never published.
+            </p>
+        </div>
+    </div>
+
+    <script src="backend-config.js"></script>
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+    <script src="welcome.js"></script>
+</body>
+
+</html>

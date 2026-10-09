@@ -1,0 +1,423 @@
+:root {
+    --navy: #112d4e;
+    --navy-deep: #0b1b2e;
+    --gold: #d4af67;
+    --gold-soft: #f5e8c8;
+    --text: #1c2736;
+    --muted: #5b6675;
+    --success: #186a3b;
+    --danger: #a42828;
+    --shadow: rgba(5, 14, 28, 0.45);
+    --page-bg:
+        radial-gradient(ellipse 60% 45% at 50% 0%, rgba(212, 175, 103, 0.30), transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 100%, rgba(66, 120, 190, 0.28), transparent 70%),
+        linear-gradient(180deg, #0b1b2e, #112d4e) fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 28px 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+button {
+    font-family: inherit;
+}
+
+.page-shell {
+    width: min(100%, 520px);
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    padding: 36px 26px 28px;
+    background: #fbfcfe;
+    border-radius: 22px;
+    border: 1px solid rgba(212, 175, 103, 0.5);
+    box-shadow: 0 30px 70px var(--shadow);
+    overflow: hidden;
+}
+
+.glow-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--navy), var(--gold), var(--navy));
+}
+
+.brand-mark {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 14px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--navy-deep);
+    background: radial-gradient(circle at 35% 30%, #fff3d2, var(--gold));
+    box-shadow: 0 0 0 6px rgba(212, 175, 103, 0.18), 0 10px 28px rgba(212, 175, 103, 0.45);
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    color: var(--navy);
+    font-size: clamp(1.4rem, 5vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    margin: 8px 0 14px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.intro {
+    margin: 0 0 18px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.info-banner {
+    margin: 0 0 6px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    color: var(--navy-deep);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+label {
+    display: block;
+    margin: 20px 0 7px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px 14px;
+    font-size: 16px;
+    color: var(--text);
+    background: #fff;
+    border: 1.5px solid rgba(17, 45, 78, 0.18);
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--navy);
+    box-shadow: 0 0 0 4px rgba(212, 175, 103, 0.35);
+}
+
+button[type="submit"] {
+    width: 100%;
+    margin-top: 28px;
+    padding: 15px 18px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy), #24508a);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+button[type="submit"]:hover {
+    box-shadow: 0 12px 26px rgba(17, 45, 78, 0.3);
+}
+
+button[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+button[type="submit"]:disabled {
+    cursor: wait;
+    opacity: 0.8;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+#message {
+    min-height: 24px;
+    margin: 16px 0 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+#message:not(:empty) {
+    padding: 12px 14px;
+    border-radius: 10px;
+}
+
+#message.success {
+    color: var(--success);
+    background: rgba(24, 106, 59, 0.1);
+}
+
+#message.error {
+    color: var(--danger);
+    background: rgba(164, 40, 40, 0.08);
+}
+
+.privacy-note {
+    margin: 14px 0 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.thank-you-icon {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 2.2rem;
+    background: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px rgba(24, 106, 59, 0.14);
+    animation: pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+
+.thank-you-page p {
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.7;
+}
+
+.thank-you-page .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+}
+
+.thank-you-page .actions a {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 30px 18px 22px;
+    }
+}
+
+.brand-logo {
+    display: block;
+    width: 132px;
+    height: auto;
+    margin: 0 auto 14px;
+}
+
+.brand-logo.small {
+    width: 88px;
+    margin-bottom: 10px;
+}
+
+/* Welcome screen */
+body.intro {
+    overflow: hidden;
+}
+
+body.intro .page-shell {
+    display: none;
+}
+
+.page-shell {
+    animation: rise 0.6s 0.1s ease both;
+}
+
+.welcome {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    padding: 28px 22px;
+    overflow-y: auto;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    background: var(--page-bg);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.welcome.leaving {
+    opacity: 0;
+    transform: scale(1.04);
+    pointer-events: none;
+}
+
+.welcome-inner {
+    max-width: 460px;
+}
+
+.welcome-logo {
+    display: block;
+    width: min(46vw, 190px);
+    aspect-ratio: 1;
+    margin: 0 auto 24px;
+    padding: 14px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px rgba(212, 175, 103, 0.2), 0 0 80px rgba(212, 175, 103, 0.55);
+}
+
+.welcome-church {
+    margin: 0;
+    color: var(--gold-soft);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.welcome-title {
+    margin: 10px 0 14px;
+    font-size: clamp(2.3rem, 10vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.welcome-line {
+    margin: 0 auto;
+    max-width: 380px;
+    color: #d3deec;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.welcome-verse {
+    margin: 22px auto 0;
+    max-width: 340px;
+    color: var(--gold-soft);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.55;
+    opacity: 0.9;
+}
+
+.welcome-tap {
+    display: inline-block;
+    margin: 34px 0 0;
+    padding: 13px 28px;
+    border: 1.5px solid var(--gold);
+    border-radius: 999px;
+    color: var(--gold-soft);
+    font-weight: 700;
+    animation: breathe 2.4s ease-in-out infinite;
+}
+
+.row-2 {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 12px;
+}
+
+@keyframes breathe {
+    50% {
+        opacity: 0.45;
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Share on thank-you page */
+.thank-you-page .share-note {
+    margin: 22px 0 0;
+    font-size: 15px;
+}
+
+.thank-you-page .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.thank-you-page .actions a.share-btn {
+    background: #117a43;
+    padding: 14px 24px;
+}
+
+.thank-you-page .actions a.secondary-link {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid rgba(17, 45, 78, 0.25);
+}
