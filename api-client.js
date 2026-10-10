@@ -1,6 +1,20 @@
 (function () {
     const frameName = "birthdayApiFrame";
-    let secretaryKey;
+    const KEY_NAME = "churchBirthdaySecretaryKey";
+
+    // The key is kept only for this browser tab. Closing the tab forgets it.
+    function readStoredKey() {
+        try { return window.sessionStorage.getItem(KEY_NAME) || ""; } catch (error) { return ""; }
+    }
+
+    function storeKey(value) {
+        try {
+            if (value) window.sessionStorage.setItem(KEY_NAME, value);
+            else window.sessionStorage.removeItem(KEY_NAME);
+        } catch (error) { /* storage unavailable: the key is asked for each visit */ }
+    }
+
+    let secretaryKey = readStoredKey();
 
     function requireApiUrl() {
         if (!window.CHURCH_BIRTHDAY_API_URL) {
@@ -12,6 +26,7 @@
     function getSecretaryKey() {
         if (!secretaryKey) {
             secretaryKey = window.prompt("Enter the secretary access key:");
+            if (secretaryKey) storeKey(secretaryKey);
         }
         if (!secretaryKey) {
             throw new Error("The secretary access key is required.");
@@ -59,6 +74,7 @@
                 } else {
                     if (/access denied/i.test(event.data.payload.error || "")) {
                         secretaryKey = "";
+                        storeKey("");
                     }
                     reject(new Error(event.data.payload.error || "The request could not be completed."));
                 }
@@ -90,9 +106,15 @@
         });
     }
 
+    function lock() {
+        secretaryKey = "";
+        storeKey("");
+    }
+
     window.ChurchBirthdayApi = {
         post: post,
         listEntries: listEntries,
-        getSecretaryKey: getSecretaryKey
+        getSecretaryKey: getSecretaryKey,
+        lock: lock
     };
 })();

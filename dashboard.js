@@ -259,3 +259,8 @@ document.getElementById("approveAll").addEventListener("click", async function (
         button.disabled = false;
     }
 });
+
+document.getElementById("lockDashboard").addEventListener("click", function () {
+    window.ChurchBirthdayApi.lock();
+    window.location.reload();
+});
