@@ -4,8 +4,8 @@
     const UNITS = ["Adult Choir", "Anti-Abortion Crusaders", "Choreography Unit", "Counseling Unit",
         "Drama Ministry", "Evangelism Unit", "Hospital Evangelism", "Instrumentalists",
         "Internet Evangelism", "Interpreters Unit", "Juvenile Choir", "Life Choice",
-        "Ministry Comedians", "Outreach Ministry", "Prayer Department", "Priesthood Mass Choir",
-        "Puppeteers", "Sunday School (Bible Teachers)", "Ushering Department",
+        "Ministry Comedians", "Outreach Ministry", "Prayer Department", "Puppeteers",
+        "Royal Priesthood Mass Choir", "Sunday School (Bible Teachers)", "Ushering Department",
         "Visitation Unit", "Welfare Unit"];
     const MONTH_RE = "(jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)";
 
